@@ -90,13 +90,6 @@ class BestSellerBooksFragment : Fragment(), OnListFragmentInteractionListener {
                 recyclerView.adapter = BestSellerBooksRecyclerViewAdapter(models, this@BestSellerBooksFragment)
 
 
-                    val models: List<BestSellerBook> = gson.fromJson(booksRawJSON, arrayBookType)
-                    recyclerView.adapter =
-                        BestSellerBooksRecyclerViewAdapter(models, this@BestSellerBooksFragment)
-                } catch (e: Exception) {
-                    // Look for this in Logcat:
-                    Log.e("BestSellerBooksFragment", "Error parsing JSON: ${e.message}")
-                }
             }
 
             /*
