@@ -13,7 +13,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.codepath.asynchttpclient.AsyncHttpClient
 import com.codepath.asynchttpclient.RequestParams
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
+
 import com.codepath.bestsellerlistapp.R
+
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import okhttp3.Headers
@@ -64,6 +66,7 @@ class BestSellerBooksFragment : Fragment(), OnListFragmentInteractionListener {
             object : JsonHttpResponseHandler()
             {
         // Using the client, perform the HTTP request
+
             /*
              * The onSuccess function gets called when
              * HTTP response status is "200 OK"
@@ -77,6 +80,7 @@ class BestSellerBooksFragment : Fragment(), OnListFragmentInteractionListener {
                 progressBar.hide()
 
                 //TODO - Parse JSON into Models
+
                 val resultsJSON : JSONObject = json.jsonObject.get("results") as JSONObject
                 val booksRawJSON : String = resultsJSON.get("books").toString()
                 val gson = Gson()
@@ -85,8 +89,14 @@ class BestSellerBooksFragment : Fragment(), OnListFragmentInteractionListener {
                 val models : List<BestSellerBook> = gson.fromJson(booksRawJSON, arrayBookType) // References object to token
                 recyclerView.adapter = BestSellerBooksRecyclerViewAdapter(models, this@BestSellerBooksFragment)
 
-                // Look for this in Logcat:
-                Log.d("BestSellerBooksFragment", "response successful")
+
+                    val models: List<BestSellerBook> = gson.fromJson(booksRawJSON, arrayBookType)
+                    recyclerView.adapter =
+                        BestSellerBooksRecyclerViewAdapter(models, this@BestSellerBooksFragment)
+                } catch (e: Exception) {
+                    // Look for this in Logcat:
+                    Log.e("BestSellerBooksFragment", "Error parsing JSON: ${e.message}")
+                }
             }
 
             /*
@@ -101,13 +111,14 @@ class BestSellerBooksFragment : Fragment(), OnListFragmentInteractionListener {
             ) {
                 // The wait for a response is over
                 progressBar.hide()
-
+                Log.e("BestSellerBooksFragment", "API request failed with status code $statusCode")
                 // If the error is not null, log it!
                 t?.message?.let {
-                    Log.e("BestSellerBooksFragment", errorResponse)
+                    Log.e("BestSellerBooksFragment", it)
                 }
             }
         }]
+
 
     }
 

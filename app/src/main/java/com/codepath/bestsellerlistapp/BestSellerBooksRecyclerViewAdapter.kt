@@ -3,7 +3,9 @@ package com.codepath.bestsellerlistapp
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+
 import android.widget.Button
+
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -34,10 +36,12 @@ class BestSellerBooksRecyclerViewAdapter(
         var mItem: BestSellerBook? = null
         val mBookTitle: TextView = mView.findViewById<View>(id.book_title) as TextView
         val mBookAuthor: TextView = mView.findViewById<View>(id.book_author) as TextView
+
         val mRanking: TextView = mView.findViewById<View>(id.ranking) as TextView
         val mBookImage: ImageView = mView.findViewById<View>(id.book_image) as ImageView
         val mBookDescription: TextView = mView.findViewById<View>(id.book_description) as TextView
         val mButton: Button = mView.findViewById<View>(id.buy_button) as Button
+
 
         override fun toString(): String {
             return mBookTitle.toString() + " '" + mBookAuthor.text + "'"
@@ -54,6 +58,7 @@ class BestSellerBooksRecyclerViewAdapter(
         holder.mBookTitle.text = book.title
         holder.mBookAuthor.text = book.author
         holder.mBookDescription.text = book.description
+
         holder.mRanking.text = book.rank.toString()
 
         Glide.with(holder.mView)
@@ -61,11 +66,17 @@ class BestSellerBooksRecyclerViewAdapter(
             .centerInside()
             .into(holder.mBookImage)
 
+
         holder.mView.setOnClickListener {
             holder.mItem?.let { book ->
                 mListener?.onItemClick(book)
             }
         }
+
+        Glide.with(holder.mView)
+            .load(book.bookImageUrl)
+            .centerInside()
+            .into(holder.mBookImage)
     }
 
     /**
