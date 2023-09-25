@@ -5,11 +5,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.widget.ContentLoadingProgressBar
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.codepath.asynchttpclient.AsyncHttpClient
 import com.codepath.asynchttpclient.RequestParams
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
@@ -83,7 +85,12 @@ class MovieFragment : Fragment(), OnListFragmentInteractionListener {
                 val arrayTutorialType = object: TypeToken<List<Movie>>() {}.type
                 val movie :List<Movie> = gson.fromJson(jsonResponse, arrayTutorialType)
                 recyclerView.adapter = MovieRecyclerViewAdapter(movie, this@MovieFragment)
-
+/*
+                //TODO - fix this
+                     Glide.with(context)
+                    .load("http://via.placeholder.com/300.png")
+                    .into(view.findViewById(R.id.movieImage))
+*/
                 /* From Lab 3
 
                 val resultsJSON : JSONObject = json.jsonObject.get("results") as JSONObject
