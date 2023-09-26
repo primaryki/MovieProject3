@@ -30,7 +30,8 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://i.imgur.com/KEs5f58.mp4' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/CCLVMAY.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/e2DUj6y.png' title='Stretch Feature - Placeholder' width='' alt='Stretch Feature - Placeholder Screenshot' />
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with Gifski  
