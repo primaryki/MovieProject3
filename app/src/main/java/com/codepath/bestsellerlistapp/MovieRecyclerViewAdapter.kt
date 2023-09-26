@@ -54,10 +54,8 @@ class MovieRecyclerViewAdapter(
             //from old code - holder.mRanking.text = book.rank.toString()
 
             Glide.with(holder.mView)
-                .load(movie.imageUrl)
-                .centerInside()
+                .load("https://image.tmdb.org/t/p/w500/"+movie.imageUrl)
                 .into(holder.mMovieImage)
-
 
             holder.mView.setOnClickListener {
                 holder.mItem?.let { book ->
@@ -66,9 +64,15 @@ class MovieRecyclerViewAdapter(
             }
 
             Glide.with(holder.mView)
+                .load("https://image.tmdb.org/t/p/w500/"+movie.imageUrl)
+                .placeholder(R.drawable.placeholder)
+                .error(R.drawable.imagenotfound)
+                .into(holder.mMovieImage)
+
+            /*Glide.with(holder.mView)
                 .load(movie.imageUrl)
                 .centerInside()
-                .into(holder.mMovieImage)
+                .into(holder.mMovieImage)*/
         }
 
         /**
