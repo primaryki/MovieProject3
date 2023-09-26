@@ -30,7 +30,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://i.imgur.com/CCLVMAY.gifv' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/CCLVMAY.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 Here's a screenshot of my placeholder stretch feature code:
 
