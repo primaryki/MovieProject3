@@ -11,31 +11,33 @@
         android:id="@+id/movieTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="Movie Title"
-        android:layout_marginLeft="16dp"
         android:textAppearance="?attr/textAppearanceListItem"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/movieImage"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/movieImage" />
 
     <ImageView
         android:id="@+id/movieImage"
         android:layout_width="100dp"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_gallery" />
 
-    <TextView
-        android:id="@+id/movieDescription"
-        android:layout_width="230dp"
-        android:layout_height="wrap_content"
-        android:textSize="13sp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="4dp"
-        android:text="Movie Description"
-        app:layout_constraintStart_toEndOf="@+id/movieImage"
-        app:layout_constraintTop_toBottomOf="@+id/movieTitle" />
+    <!--    <TextView-->
+    <!--        android:id="@+id/movieDescription"-->
+    <!--        android:layout_width="230dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:textSize="13sp"-->
+    <!--        android:layout_marginLeft="16dp"-->
+    <!--        android:layout_marginTop="4dp"-->
+    <!--        android:text="Movie Description"-->
+    <!--        app:layout_constraintStart_toEndOf="@+id/movieImage"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/movieTitle" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

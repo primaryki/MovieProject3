@@ -15,8 +15,8 @@ import com.codepath.bestsellerlistapp.R.id
  * specified [OnListFragmentInteractionListener].
  */
 class MovieRecyclerViewAdapter(
-    private val movies: List<Movie>,
-    private val mListener: OnListFragmentInteractionListener?
+    val movies: List<Movie>,
+    val mListener: OnListFragmentInteractionListener?
     )
     : RecyclerView.Adapter<MovieRecyclerViewAdapter.BookViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookViewHolder {
@@ -32,7 +32,7 @@ class MovieRecyclerViewAdapter(
     inner class BookViewHolder(val mView: View) : RecyclerView.ViewHolder(mView) {
         var mItem: Movie? = null
         val mMovieTitle: TextView = mView.findViewById<View>(id.movieTitle) as TextView
-        val mMovieDescription: TextView = mView.findViewById<View>(id.movieDescription) as TextView
+        //val mMovieDescription: TextView = mView.findViewById<View>(id.movieDescription) as TextView
         val mMovieImage: ImageView = mView.findViewById<View>(id.movieImage) as ImageView
 
 
@@ -49,7 +49,7 @@ class MovieRecyclerViewAdapter(
 
             holder.mItem = movie
             holder.mMovieTitle.text = movie.title
-            holder.mMovieDescription.text = movie.description
+            //holder.mMovieDescription.text = movie.description
 
             //from old code - holder.mRanking.text = book.rank.toString()
 

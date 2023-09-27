@@ -10,12 +10,25 @@ import com.google.gson.annotations.SerializedName
  */
 class Movie {
 
-    @SerializedName("original_title")
+    @SerializedName("name")
     var title: String? = null
 
-    @SerializedName("overview")
-    var description: String? = null
+//    @SerializedName("overview")
+//    var description: String? = null
 
     @SerializedName("poster_path")
     var imageUrl: String? = null
+
+    @SerializedName("original_name")
+    var originalTitle: String? = null
+
+    @SerializedName("backdrop_path")
+    var backdropUrl: String? = null
+
+    @SerializedName("first_air_date")
+    var firstAirDate: String? = null
+
+    @SerializedName("overview")
+    var overview: String? = null
+
 }
