@@ -1,6 +1,5 @@
 package com.codepath.bestsellerlistapp
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -28,9 +27,6 @@ import org.json.JSONObject
 // --------------------------------//
 private const val API_KEY = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
 
-const val MOVIE_EXTRA = "MOVIE_EXTRA"
-private const val TAG = "MovieAdapter"
-
 /*
  * The class for the only fragment in the app, which contains the progress bar,
  * recyclerView, and performs the network calls to the NY Times API.
@@ -48,7 +44,7 @@ class MovieFragment : Fragment(), OnListFragmentInteractionListener {
         val progressBar = view.findViewById<View>(R.id.progress) as ContentLoadingProgressBar
         val recyclerView = view.findViewById<View>(R.id.list) as RecyclerView
         val context = view.context
-        recyclerView.layoutManager = GridLayoutManager(context,2)// Wasn't working bc I had GridLayoutManager
+        recyclerView.layoutManager = LinearLayoutManager(context)// Wasn't working bc I had GridLayoutManager
         updateAdapter(progressBar, recyclerView)
         return view
     }
@@ -66,7 +62,7 @@ class MovieFragment : Fragment(), OnListFragmentInteractionListener {
         params["api_key"] = API_KEY
 
         client[
-            "https://api.themoviedb.org/3/tv/top_rated",
+            "https://api.themoviedb.org/3/movie/now_playing",
             params,
             object : JsonHttpResponseHandler()
             {
@@ -131,14 +127,6 @@ class MovieFragment : Fragment(), OnListFragmentInteractionListener {
      * What happens when a particular book is clicked.
      */
     override fun onItemClick(item: Movie) {
-//        //  Navigate to Details screen and pass selected article
-////        //TODO - Come back to this
-////
-//        val intent = Intent(context, DetailActivity::class.java)
-//
-//        intent.putExtra(MOVIE_EXTRA, item)
-//        context?.startActivity(intent)
-
         Toast.makeText(context, "test: " + item.title, Toast.LENGTH_LONG).show()
     }
 
